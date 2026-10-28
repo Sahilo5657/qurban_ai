@@ -1,0 +1,96 @@
+# Chinar Configuration
+# Copy this file to config/config.toml and customize.
+
+[general]
+# Assistant name used in greetings and TTS
+name = "Chinar"
+# Language code for STT and TTS
+language = "en"
+# Enable command history persistence
+enable_history = true
+# Maximum command history entries (0 = unlimited)
+max_history = 1000
+# Global emergency stop — disables all automation when true
+emergency_stop = false
+
+[audio]
+# Operating mode: "push_to_talk" or "wake_word"
+mode = "push_to_talk"
+# Sample rate in Hz (16000 recommended for Vosk)
+sample_rate = 16000
+# Audio channels (1 = mono, required for most STT)
+channels = 1
+# Enable voice activity detection to skip silence
+voice_activity_detection = true
+# VAD energy threshold (0.0–1.0, higher = less sensitive)
+vad_energy_threshold = 0.02
+# Maximum recording duration in seconds (safety limit)
+max_recording_seconds = 30
+# Audio chunk duration in milliseconds
+chunk_ms = 100
+# Input device index (null = system default)
+input_device = null
+
+[stt]
+# Engine: "vosk" (recommended for this hardware)
+engine = "vosk"
+# Path to the Vosk model directory (relative to project root)
+model_path = "models/stt/vosk-model-small-en-us-0.15"
+# Language for recognition
+language = "en-us"
+
+[tts]
+# Enable text-to-speech feedback
+enabled = true
+# Engine: "pyttsx3" (uses Windows SAPI5)
+engine = "pyttsx3"
+# Speech rate (words per minute)
+rate = 175
+# Volume (0.0–1.0)
+volume = 0.9
+# Voice ID (null = system default)
+voice_id = null
+# Mute all speech output
+muted = false
+
+[llm]
+# LLM provider: "ollama" or "none"
+provider = "ollama"
+# Ollama API endpoint (must be localhost)
+endpoint = "http://127.0.0.1:11434"
+# Model name (empty = auto-detect from installed models)
+model = ""
+# Enable LLM-based intent parsing
+enabled = true
+# Request timeout in seconds
+request_timeout_seconds = 15
+# Fall back to deterministic rules when LLM is unavailable
+fallback_to_rules = true
+
+[logging]
+# Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+level = "INFO"
+# Log file path (relative to project root)
+file = "logs/chinar.log"
+# Maximum log file size in bytes before rotation
+max_bytes = 5242880
+# Number of rotated log files to keep
+backup_count = 3
+
+[database]
+# SQLite database path (relative to project root)
+path = "data/chinar.db"
+# Enable WAL mode for better concurrent access
+wal_mode = true
+
+[security]
+# Enable confirmation prompts for high-risk actions
+require_confirmation = true
+# Allowed directories for file operations (list of absolute paths)
+allowed_directories = []
+# Maximum subprocess timeout in seconds
+subprocess_timeout = 30
+# Enable audit logging
+audit_logging = true
+# Rate limit: max actions per minute (0 = unlimited)
+rate_limit = 30

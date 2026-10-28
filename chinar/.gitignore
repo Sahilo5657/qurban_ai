@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Project runtime
+data/*.db
+data/*.sqlite
+logs/
+*.log
+
+# Models (large files)
+models/*.bin
+models/*.gguf
+models/*.zip
+models/stt/
+
+# Config with secrets
+config/config.toml
+
+# Test artifacts
+.pytest_cache/
+htmlcov/
+.coverage

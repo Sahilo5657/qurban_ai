@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "chinar"
+version = "0.1.0"
+description = "Chinar — Local-first, system-integrated voice assistant for Windows"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "Chinar Contributors"},
+]
+
+dependencies = [
+    "vosk>=0.3.45",
+    "sounddevice>=0.4.6",
+    "pyttsx3>=2.90",
+    "pycaw>=20240210",
+    "comtypes>=1.4.1",
+    "pyautogui>=0.9.54",
+    "psutil>=5.9.0",
+    "tomli>=2.0.1;python_version<'3.11'",
+    "aiosqlite>=0.19.0",
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+]
+llm = [
+    "httpx>=0.25.0",
+]
+
+[project.scripts]
+chinar = "chinar.main:main_entry"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["chinar*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "integration: marks tests requiring hardware or external services",
+    "slow: marks slow tests",
+]

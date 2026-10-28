@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Qurban</string>
+    <string name="accessibility_service_label">Qurban Phone Agent</string>
+    <string name="accessibility_service_description">Enables Qurban Voice Assistant to inspect on-screen UI elements, navigate apps, and perform hands-free voice interactions on your behalf.</string>
+</resources>

@@ -1,0 +1,37 @@
+# Gradle & Android Build Artifacts
+.gradle/
+build/
+**/build/
+*.apk
+*.aab
+
+# Local SDK & Machine Configuration
+local.properties
+.kotlin/
+Captures/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# Audio scratch / test files
+android/*.wav
+android/*.pcm
+android/vosk-model-spk-0.4/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+env/
+venv/
+ENV/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
